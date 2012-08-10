@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application fontSize="12" initialize="setup()" xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="454" height="356">
+	<mx:Script>
+		<![CDATA[
+			private function setup():void{
+				this.addEventListener(Event.ENTER_FRAME,_ENTER_FRAME)
+				this.btn.addEventListener(MouseEvent.CLICK,_CLICK)
+				this.version.text = 'version：'+flash.system.Capabilities.version+'\nvmVersion：'+flash.system.System.vmVersion+'\nisDebugger：'+flash.system.Capabilities.isDebugger
+				
+			}
+			private function _ENTER_FRAME(event:Event):void{
+				//trace(flash.system.System.totalMemory)
+				
+				console_ta.text = '当前使用内存：'+ getSize(flash.system.System.totalMemory,3);
+				//flash.system.System.gc()
+			}
+			private function _CLICK(event:Event):void{
+				
+				flash.system.Security.showSettings()
+				//new Video().attachCamera(flash.media.Camera.getCamera())
+			}
+			private function getSize(value:int,radix:int=2):String{
+				
+				var radixx:int = Math.pow(10,radix);
+				
+				if(value>1024*1024*1024){
+					return Math.round(value/1024/1024/1024*radixx)/radixx+'GB'
+				}else if(value>1024*1024){
+					return Math.round(value/1024/1024*radixx)/radixx+'MB'
+				}else if(value>1024){
+					return Math.round(value/1024*radixx)/radixx+'KB'
+				}else {
+					return value+'B'
+				}
+			}
+		]]>
+	</mx:Script>
+	
+	<mx:TextInput id="console_ta" x="10" y="10" width="220" editable="false"/>
+	<mx:Text x="10" y="282" text="请尝试手动开启或关闭对话窗口，关注内存的变化。&#xa;如果有时间，请将多给点测试时间，看接下来还会发生什么？&#xa;当然你也可以使用系统任务管理器来观察内存的变化。" height="60" width="340" selectable="false"/>
+	<mx:Button id="btn" x="16" y="245" label="显示设置面板"/>
+	<mx:Text id="version" x="10" y="42" text="内存" width="220" height="81"/>
+	
+</mx:Application>

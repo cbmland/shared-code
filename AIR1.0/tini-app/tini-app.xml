@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://ns.adobe.com/air/application/1.0.M6">
+
+	<id>pureASProject</id>
+
+	<filename>pureASProject</filename>
+
+	<initialWindow>
+
+		<content>pureASProject.swf</content>
+		
+		<visible>true</visible>
+
+	</initialWindow>
+
+</application>

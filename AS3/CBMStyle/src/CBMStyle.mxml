@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+
+	<mx:Style source="CBMStyle.css" />
+	
+	<mx:Script>
+		<![CDATA[
+		//
+			var array:Array = [{'label':'cbmland.com'},{'label':'cbmland.com'},{'label':'cbmland.com'},{'label':'cbmland.com'},{'label':'cbmland.com'},{'label':'cbmland.com'},{'label':'cbmland.com'}]
+		]]>
+	</mx:Script> 
+	
+	<mx:ComboBox dataProvider="{array}" x="73" y="72" editable="false" height="18"></mx:ComboBox>
+	<mx:RichTextEditor x="252" y="10" title="Title">
+	</mx:RichTextEditor>
+	 
+</mx:Application> 
